@@ -1,0 +1,38 @@
+# Get All
+GET http://127.0.0.1:8000/api/author HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###
+# Get Single
+GET http://127.0.0.1:8000/api/author/1 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###
+# Create
+POST http://127.0.0.1:8000/api/author HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+  "name": "Author 2",
+  "description": "This is some description text"
+}
+
+###
+# Update
+PUT http://127.0.0.1:8000/api/author/1 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+  "name": "Author 1 - Updated",
+  "description": "This is some description text"
+}
+
+###
+# Delete
+DELETE http://127.0.0.1:8000/api/author/22 HTTP/1.1
+content-type: application/json
+Accept: application/json

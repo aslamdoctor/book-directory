@@ -1,0 +1,36 @@
+# Get All
+GET http://127.0.0.1:8000/api/language HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###
+# Get Single
+GET http://127.0.0.1:8000/api/language/1 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###
+# Create
+POST http://127.0.0.1:8000/api/language HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+  "name": "Language 2"
+}
+
+###
+# Update
+PUT http://127.0.0.1:8000/api/language/1 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+  "name": "Language 1 - Updated"
+}
+
+###
+# Delete
+DELETE http://127.0.0.1:8000/api/language/22 HTTP/1.1
+content-type: application/json
+Accept: application/json
