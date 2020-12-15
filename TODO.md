@@ -1,4 +1,4 @@
--   [ ] Book
+-   [x] Book
 
     1. Title  
        string
@@ -25,26 +25,26 @@
     12. No. of pages  
         integer
 
--   [ ] Author
+-   [x] Author
 
     1. Name
        string
     2. Description  
        text
 
--   [ ] Publisher
+-   [x] Publisher
 
     1. Name
        string
     2. Description  
        text
 
--   [ ] Language
+-   [x] Language
 
     1. Name
        string
 
--   [ ] Category
+-   [x] Category
 
     1. Name
        string
@@ -64,6 +64,7 @@
 -   [x] Bootstrap integration
 -   [ ] File Upload
 -   [ ] Sending Emails
+-   [ ] Authentication
 
 # Relationships
 
@@ -71,7 +72,7 @@
 -   [x] Author belongsTo Book
 -   [x] Book hasOne Publisher
 -   [x] Publisher belongsTo Book
--   [ ] Book belongsToMany Category
--   [ ] Category belongsToMany Book
--   [ ] Book belongsToMany Language
--   [ ] Language belongsToMany Book
+-   [x] Book belongsToMany Category
+-   [x] Category belongsToMany Book
+-   [x] Book belongsToMany Language
+-   [x] Language belongsToMany Book
