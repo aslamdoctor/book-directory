@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LanguageController;
@@ -32,5 +33,8 @@ Route::resource('language', LanguageController::class)->except([
     'create', 'edit'
 ]);
 Route::resource('publisher', PublisherController::class)->except([
+    'create', 'edit'
+]);
+Route::resource('book', BookController::class)->except([
     'create', 'edit'
 ]);

@@ -3,83 +3,104 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use Illuminate\Http\Request;
+use App\Http\Requests\BookStoreRequest;
+use App\Http\Requests\BookUpdateRequest;
 
 class BookController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Listing
      */
     public function index()
     {
-        //
+        $book = new Book();
+        return $book->with(['categories', 'languages'])->get();
     }
 
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Create new
      */
-    public function create()
+    public function store(BookStoreRequest $request)
     {
-        //
+        $book = new Book();
+        $book->title = $request->title;
+        $book->description = $request->description;
+        $book->publication_date = $request->publication_date;
+        $book->publication_location = $request->publication_location;
+        $book->isbn = $request->isbn;
+        $book->doi = $request->doi;
+        $book->cover = $request->cover;
+        $book->no_of_pages = $request->no_of_pages;
+        $book->author_id = $request->author_id;
+        $book->publisher_id = $request->publisher_id;
+
+        $book->save();
+
+        $categories  = $request->categories;
+        if(count($categories) > 0){
+            $book->categories()->attach($categories);
+        }
+
+        $languages  = $request->languages;
+        if(count($languages) > 0){
+            $book->languages()->attach($languages);
+        }
+
+        $book->load('categories', 'languages');
+
+        return $book;
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
+     * Display single
      */
     public function show(Book $book)
     {
-        //
+        $book->load('categories', 'languages');
+        return $book;
     }
 
+
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
+     * Update
      */
-    public function edit(Book $book)
+    public function update(BookUpdateRequest $request, Book $book)
     {
-        //
+        $book->title = $request->title;
+        $book->description = $request->description;
+        $book->publication_date = $request->publication_date;
+        $book->publication_location = $request->publication_location;
+        $book->isbn = $request->isbn;
+        $book->doi = $request->doi;
+        $book->cover = $request->cover;
+        $book->no_of_pages = $request->no_of_pages;
+        $book->author_id = $request->author_id;
+        $book->publisher_id = $request->publisher_id;
+
+        $book->save();
+
+        $categories  = $request->categories;
+        if(count($categories) > 0){
+            $book->categories()->sync($categories);
+        }
+
+        $languages  = $request->languages;
+        if(count($languages) > 0){
+            $book->languages()->sync($languages);
+        }
+
+        $book->load('categories', 'languages');
+
+        return $book;
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Book $book)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
+     * Delete
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return response()->json(['message' => 'Deleted'], 200);
     }
 }

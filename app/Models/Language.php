@@ -11,6 +11,6 @@ class Language extends Model
     use HasFactory;
 
     public function books(){
-        return $this->belongsToMany(Book::class);
+        return $this->belongsToMany(Book::class, 'books_languages');
     }
 }

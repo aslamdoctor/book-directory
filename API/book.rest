@@ -1,0 +1,66 @@
+# Get All
+GET http://127.0.0.1:8000/api/book HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###
+# Get Single
+GET http://127.0.0.1:8000/api/book/1 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###
+# Create
+POST http://127.0.0.1:8000/api/book HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+  "title": "Book 3 - Created",
+  "description": "Some description text",
+  "publication_date": "2020-6-10",
+  "publication_location": "India",
+  "isbn": "1234567-isbn",
+  "doi": "1234567-doi",
+  "cover": "",
+  "no_of_pages": "120",
+  "author_id": "11",
+  "publisher_id": "3",
+  "categories": [
+    1, 2, 3
+  ],
+  "languages": [
+    1, 2
+  ]
+}
+
+###
+# Update
+PUT http://127.0.0.1:8000/api/book/25 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+  "title": "Book 3 - Updated",
+  "description": "Some description text",
+  "publication_date": "2020-6-10",
+  "publication_location": "India",
+  "isbn": "1234567-isbn",
+  "doi": "1234567-doi",
+  "cover": "",
+  "no_of_pages": "120",
+  "author_id": "11",
+  "publisher_id": "3",
+  "categories": [
+    2, 3
+  ],
+  "languages": [
+    1, 2, 3
+  ]
+}
+
+###
+# Delete
+DELETE http://127.0.0.1:8000/api/book/25 HTTP/1.1
+content-type: application/json
+Accept: application/json

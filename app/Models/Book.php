@@ -22,10 +22,10 @@ class Book extends Model
     }
 
     public function categories(){
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'books_categories');
     }
 
     public function languages(){
-        return $this->belongsToMany(Language::class);
+        return $this->belongsToMany(Language::class, 'books_languages');
     }
 }

@@ -18,10 +18,10 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('publication_date');
-            $table->string('publication_location');
+            $table->string('publication_location')->nullable();
             $table->string('isbn');
-            $table->string('doi');
-            $table->string('cover');
+            $table->string('doi')->nullable();
+            $table->string('cover')->nullable();
             $table->unsignedInteger('no_of_pages');
 
             $table->timestamps();
