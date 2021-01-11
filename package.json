@@ -24,6 +24,8 @@
     },
     "dependencies": {
         "postcss": "^8.1.9",
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vue-router": "^3.4.9",
+        "vuex": "^3.6.0"
     }
 }

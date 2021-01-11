@@ -1,17 +1,17 @@
 # Get All
-GET http://127.0.0.1:8000/api/book HTTP/1.1
+GET http://127.0.0.1:8000/api/books HTTP/1.1
 content-type: application/json
 Accept: application/json
 
 ###
 # Get Single
-GET http://127.0.0.1:8000/api/book/1 HTTP/1.1
+GET http://127.0.0.1:8000/api/books/1 HTTP/1.1
 content-type: application/json
 Accept: application/json
 
 ###
 # Create
-POST http://127.0.0.1:8000/api/book HTTP/1.1
+POST http://127.0.0.1:8000/api/books HTTP/1.1
 content-type: application/json
 Accept: application/json
 
@@ -36,7 +36,7 @@ Accept: application/json
 
 ###
 # Update
-PUT http://127.0.0.1:8000/api/book/25 HTTP/1.1
+PUT http://127.0.0.1:8000/api/books/25 HTTP/1.1
 content-type: application/json
 Accept: application/json
 
@@ -61,6 +61,6 @@ Accept: application/json
 
 ###
 # Delete
-DELETE http://127.0.0.1:8000/api/book/25 HTTP/1.1
+DELETE http://127.0.0.1:8000/api/books/25 HTTP/1.1
 content-type: application/json
 Accept: application/json

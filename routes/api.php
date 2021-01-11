@@ -23,18 +23,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('category', CategoryController::class)->except([
+Route::resource('categories', CategoryController::class)->except([
     'create', 'edit'
 ]);
-Route::resource('author', AuthorController::class)->except([
+Route::resource('authors', AuthorController::class)->except([
     'create', 'edit'
 ]);
-Route::resource('language', LanguageController::class)->except([
+Route::resource('languages', LanguageController::class)->except([
     'create', 'edit'
 ]);
-Route::resource('publisher', PublisherController::class)->except([
+Route::resource('publishers', PublisherController::class)->except([
     'create', 'edit'
 ]);
-Route::resource('book', BookController::class)->except([
+Route::resource('books', BookController::class)->except([
     'create', 'edit'
 ]);

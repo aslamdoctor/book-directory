@@ -1,17 +1,17 @@
 <template>
     <div>
-        {{ message }}
+        <app-header />
+
+        <router-view></router-view>
     </div>
 </template>
 <script>
-const default_layout = "default";
+import appHeader from "./components/appHeader";
 
 export default {
     computed: {},
-    data() {
-        return {
-            message: "Hello World"
-        };
+    components: {
+        appHeader
     }
 };
 </script>
